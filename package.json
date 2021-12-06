@@ -1,0 +1,16 @@
+{
+  "name": "zadanieqa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "weather.js",
+  "scripts": {
+    "start": "node weather.js"
+  },
+  "author": "Paulina",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.1.0"
+  },
+  "type": "module"
+
+}
