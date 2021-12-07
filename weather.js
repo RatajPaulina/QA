@@ -1,33 +1,36 @@
 import fetch from 'node-fetch';
 
 function temperatuea(temp, body){
+    let cold= 0;
+    let warm = 0;
     let myPromise = new Promise (function(myReslove, myReject){
-    
 
         for (var i=0; i < 3; i++) {
-        const tempDay = body.forecast[i].temperature.replace(/[^\d.-]/g,'')
+        var tempDay = parseInt(body.forecast[i].temperature.replace(/[^\d.-]/g,''))
         console.log('Dnia '+ i + ' temperatura wyniesie ' + tempDay + ' °C')
-            if(tempDay>=temp){
-                myReslove(' Bedzie chociaz raz ciepło! ')
+            if(tempDay <= temp){
+                console.log(tempDay+'<='+temp)
+                warm ++
             } else{ 
-                myReject(' Bedzie zimno :( ')
+                cold++
             }
         }
     })
 
     myPromise.then(
-        function(value) {console.log(value);},
-        function(error) {console.log(error);}
+        console.log('Bedzie ciepło '+ warm + ' dni'),
+        console.log('Bedzie zimno '+ cold + ' dni')
     )
+    
+    
 }
 
 void(async () =>{
     const response = await fetch('https://goweather.herokuapp.com/weather/Wroclaw');
-
     const body = await response.json();
-    const tempString ='15 °C'
+    let tempString ='-7 °C'
     console.log('Temperatura od której oceniamy czy jest ciepło czy zimno wynosi ' + tempString)
-    const temp =tempString.replace(/[^\d.-]/g,'')
+    var temp =parseInt(tempString.replace(/[^\d.-]/g,''))
     
     await temperatuea(temp,body)
 
