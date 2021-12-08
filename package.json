@@ -4,7 +4,9 @@
   "description": "",
   "main": "weather.js",
   "scripts": {
-    "start": "node weather.js"
+    "start:1": "node weather.js",
+    "start:2": "node class.js"
+
   },
   "author": "Paulina",
   "license": "ISC",
