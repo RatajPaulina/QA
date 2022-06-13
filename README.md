@@ -12,3 +12,5 @@
 Dowolność - przedstaw wybrany wycinek rzeczywistości za pomocą klas i obiektów :)
 Skorzystaj z kopiowania obiektów, hermetyzacji, pól i metod statycznych, dziedziczenia, getterów/setterów i nadpisywania metod
 Wstrzyknij zależność w konstruktorze (dependency injection)
+
+# Zadanie 3
